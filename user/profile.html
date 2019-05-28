@@ -1,0 +1,110 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Voting App!</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+    <script>
+      function myF(){
+        $('.mo3').css('display','block');
+        $('.mo2').css('display', 'none');
+        $('header').css('height', '150px');
+        $('main').css('padding-top', '100px')
+      }
+      function myF2(){
+        $('.mo3').css('display','none');
+        $('.mo2').css('display', 'block');    
+        $('header').css('height', '50px')
+        $('main').css('padding-top', '0px')
+        
+      }
+    </script>
+    <script>
+       $(window).on('resize', function(){
+        if($(this).width()>800){
+          $('.mo3').css('display','none');
+          $('.mo2').css('display', 'none');
+          $('header').css('height', '50px')
+          $('main').css('padding-top', '0px')        
+        }
+        if($(this).width()<=800){
+          $('.mo3').css('display','none');
+          $('.mo2').css('display', 'block');
+          $('header').css('height', '50px')
+          $('main').css('padding-top', '0px')        
+        }         
+       })
+    </script>
+    <script src="ejs.min.js"></script>  
+
+  </head>
+  <body>
+    <header id="at">
+      <ul class="title">
+        <li>Voting App <i class="fa fa-check-square-o"></i></li>
+      </ul>
+      <div class="mo">        
+       <ul class="title2">
+         <a href="https://branch-droplet.glitch.me/user/profile.html" style="color:black"><li id="a1" class="a1"><%=user%>'s Profile</li></a>
+         <a href="https://branch-droplet.glitch.me/logout" style="color:white"><li id="a2">Sign Out</li></a>
+       </ul>
+      </div>
+      <div class="mo2">        
+        <p id="me">
+          <i class="fa fa-bars" onclick="myF()"></i>
+        </p>
+      </div>
+      <div class="mo3">        
+        <p id="me2">
+          <i class="fa fa-bars" onclick="myF2()"></i>
+        </p>
+        <ul class="title3">
+          <a href="https://branch-droplet.glitch.me/user/profile.html" style="color:black"><li id="a3"><%=user%>'s Profile</li></a>
+          <a href="https://branch-droplet.glitch.me/logout" style="color:white"><li id="a4">Sign Out</li></a>
+       </ul>
+      </div>      
+    </header>
+
+    <main id="at2">
+      <h1>Create a Poll <i class="fa fa-calendar-plus-o"></i></h1>     
+      <p class="t1">Create your own poll available for voting. <a href="https://branch-droplet.glitch.me/user/polls.html"><b>Learn More >></b></a></p>
+      
+      <h1>Remove a Poll <i class="fa fa-calendar-minus-o"></i></h1>     
+      <p class="t1">Remove any poll that you have created. <a href="https://branch-droplet.glitch.me/user/me.html"><b>Learn More >></a></b></p>
+     
+      <h1>All Polls <i class="fa fa-calendar-o"></i></h1>     
+      <p class="t1">You can access and edit all polls created by users (i.e. view and add options). <a href="https://branch-droplet.glitch.me/user/all.html"><b>Learn More >></b></a></p>
+     
+    <footer>
+
+      &copy <ma id="ma"></ma> branch-droplet.glitch.me
+    </footer>
+    </main>
+
+    <script>
+      document.getElementById('ma').textContent= new Date().getFullYear();
+    </script>
+
+  </body>
+</html>
